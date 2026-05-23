@@ -33,7 +33,7 @@ Phase 01 (Networking Foundations): `_MASTER-PLAN/phase-01-networking-foundations
 
 Phase 02 (Application Layer): `_MASTER-PLAN/phase-02-application-layer/03-ApplicationLayer_deliverables.md`.
 
-Phase 03 (Transport / Network Layers): `_MASTER-PLAN/phase-03-transport-network-layers/03-TransportNetwrokLayers_deliverables.md`. Decision Gate 1 at phase exit.
+Phase 03 (Transport / Network Layers): `_MASTER-PLAN/phase-03-transport-network-layers/03-TransportNetworkLayers_deliverables.md`. Decision Gate 1 at phase exit.
 
 *Note: the `Netwrok` filename typo in the Phase 03 path is canonical per Phase 1 HYG-08 ratification — do not "correct" it.*
 
