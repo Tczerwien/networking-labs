@@ -1,4 +1,4 @@
-# Lab 02 — Traceroute Deep Dive — Lab Notes
+# Lab NN — <Verb-phrase Title> — Lab Notes
 
 **Date started:** _____
 **Date completed:** _____
@@ -10,25 +10,23 @@
 ## Setup verification
 
 - [ ] All prerequisite tools verified per README
-- [ ] Connected to network (wifi or wired)
-- [ ] Chose which tool to use (`traceroute` or `mtr`)
+- [ ] <Lab-specific environment precondition>
+- [ ] <Lab-specific active-context identifier captured below>
 
-> Tool used:
+> <Active context (interface / target / VM):>
+
+> 
 
 ---
 
 ## Step-by-step record
 
-### Step 1 — Trace to near destination
-
-**Target host:**
-
-> 
+### Step 1 — <Verb-phrase from Procedure>
 
 **Command:**
 
 ```bash
-
+<command-with-<placeholders>>
 ```
 
 **Output:**
@@ -37,30 +35,18 @@
 
 ```
 
-**First 1–3 hops (local network / ISP entry):**
-
-> 
-
-**Hops with significant latency jumps:**
-
-> 
-
-**Last hops (destination network):**
+**What I observe:**
 
 > 
 
 ---
 
-### Step 2 — Trace to far US destination
-
-**Target host:**
-
-> 
+### Step 2 — <Verb-phrase from Procedure>
 
 **Command:**
 
 ```bash
-
+<command-with-<placeholders>>
 ```
 
 **Output:**
@@ -69,30 +55,18 @@
 
 ```
 
-**First 1–3 hops:**
-
-> 
-
-**Hops with significant latency jumps:**
-
-> 
-
-**Last hops:**
+**What I observe:**
 
 > 
 
 ---
 
-### Step 3 — Trace to international destination
-
-**Target host:**
-
-> 
+### Step 3 — <Verb-phrase from Procedure>
 
 **Command:**
 
 ```bash
-
+<command-with-<placeholders>>
 ```
 
 **Output:**
@@ -101,63 +75,25 @@
 
 ```
 
-**First 1–3 hops:**
+**What I observe:**
 
 > 
 
-**Hops with significant latency jumps:**
-
-> 
-
-**Last hops:**
-
-> 
-
----
-
-### Step 4 — ASN lookups
-
-For 5–10 interesting hop IPs across the three traces, look up the AS number and owner. Use `whois <ip>` or [bgp.tools](https://bgp.tools/).
-
-| Hop IP | Source trace | ASN | AS owner | Notes |
-|--------|--------------|-----|----------|-------|
-|        |              |     |          |       |
-|        |              |     |          |       |
-|        |              |     |          |       |
-|        |              |     |          |       |
-|        |              |     |          |       |
-
----
-
-### Step 5 — Topology sketch (optional)
-
-> 
+_Step count above is a template default. Phase 5 substitutes one Step N section per Procedure step in the paired spec.md._
 
 ---
 
 ## Analysis questions
 
-**Question 1 — near destination:** What story does the near trace tell about the path? (1 paragraph)
+**Question 1:** <Open-ended question about what the procedure revealed about the system under test>?
 
 > 
 
-**Question 2 — far US destination:** What story does the far US trace tell about the path? (1 paragraph)
+**Question 2:** <Open-ended question about why the observed behavior makes sense given the underlying concept>?
 
 > 
 
-**Question 3 — international destination:** What story does the international trace tell about the path? (1 paragraph)
-
-> 
-
-**Question 4:** Which hops appeared to cross a Tier 1 backbone? Cite ASN evidence.
-
-> 
-
-**Question 5:** Where did latency jump most sharply? Why (geography, peering, congestion)?
-
-> 
-
-**Question 6:** Where did probes time out (`* * *`)? What does that suggest about those routers?
+**Question 3:** <Open-ended question that connects this lab's findings to the next concept or lab>?
 
 > 
 
@@ -179,12 +115,14 @@ For 5–10 interesting hop IPs across the three traces, look up the AS number an
 
 ---
 
-## Decision Gate 1 connection
+## Decision Gate N connection
 
-**Which Decision Gate 1 question does this lab prepare me for?**
+**Which Decision Gate N question does this lab prepare me for?**
 
 > 
 
 **Could I demo this lab's key finding in 60 seconds to a peer?**
 
 > 
+
+*Last updated: 2026-05-21*

@@ -1,48 +1,64 @@
-# Lab 03 — Wireshark Encapsulation
+---
+lab-id: lab-03-wireshark-encapsulation
+plan-source: _MASTER-PLAN/phase-01-networking-foundations/02-NetworkingFoundation_week-by-week.md
+concept-notes: ["Layered Protocol Stack & Encapsulation", "What Is a Protocol"]
+---
+
+# Lab NN — <Verb-phrase Title>
 
 ## Objective
 
-Make encapsulation visible. Capture a real packet and decode every layer's header by hand.
+Capture an HTTP GET conversation and decode every layer's header.
 
 ## Why this lab exists
 
-- **Reinforces Concept Notes:** 8 (encapsulation), 2 (protocol)
-- **K&R sections covered:** 1.5 (Protocol layers)
-- **Decision Gate 1 connection:** This lab is the preliminary version of Gate 1. If you can do this from scratch, the preliminary gate passes.
+- **Reinforces Concept Notes:** <NN, NN[, NN]>
+- **K&R sections covered:** <X.Y[, X.Y]>
+- **Decision Gate N connection:** <One sentence: direct prep / indirect prep / no connection — and why.>
 
 ## Prerequisites
 
 Verify each tool works before starting:
 
 - [ ] `wireshark --version`
-- [ ] `groups | grep wireshark` (confirms you're in the wireshark group)
-- [ ] `curl --version`
-- [ ] `ping -c 1 neverssl.com`
+- [ ] `tcpdump --version`
+- [ ] `groups | grep -q wireshark`
+- [ ] `<command --version or test invocation>`
+- [ ] `<command --version or test invocation>`
 
 If any fail, fix per Phase 00 install notes before continuing.
 
 ## Estimated time
 
-2 hrs.
+<N hrs.>
 
 ## Procedure
 
-1. **Open Wireshark.** Pick the active interface (wifi or wired NIC).
-2. **Start a capture with no filter.**
-3. **Generate plain-HTTP traffic.** In a terminal: `curl http://neverssl.com`. neverssl.com is designed to stay on plain HTTP. Stop the capture after the response completes.
-4. **Filter to the conversation.** In Wireshark, apply: `http and ip.addr == <neverssl-ip>`.
-5. **Pick one HTTP GET packet.** Expand each layer in the dissector pane:
-    - **Ethernet:** source MAC, destination MAC, EtherType
-    - **IP (v4):** source IP, destination IP, TTL, protocol number, total length
-    - **TCP:** source port, destination port, sequence number, ack number, flags (SYN, ACK, PSH, FIN), window size
-    - **HTTP:** request line (method, path, version), headers (Host, User-Agent, Accept)
-6. **For each header field, write 1 sentence in your own words on what it does** (in lab-notes).
-7. **Save the capture.** Save to `assets/03-encapsulation.pcapng`.
+**Capture filter (BPF syntax):** `<bpf-filter-expression-with-<placeholders>>`
+
+**Display filter (Wireshark syntax):** `<display-filter-expression-with-<placeholders>>`
+
+1. **<Verb-phrase step name>.** Command: `<command-with-<placeholders>>`.
+2. **<Verb-phrase step name>.** Command: `<command-with-<placeholders>>`.
+3. **<Verb-phrase step name>.** Command: `<command-with-<placeholders>>`.
+4. **<Verb-phrase step name>.** Command: `<command-with-<placeholders>>`.
+5. **<Verb-phrase step name>.** Command: `<command-with-<placeholders>>`.
+
+### Per-layer header field interpretation
+
+| Layer | Field name | Observed value | What it identifies |
+|-------|------------|----------------|--------------------|
+| Ethernet | Source MAC |  |  |
+| Ethernet | Destination MAC |  |  |
+| IP | Source IP |  |  |
+| IP | Destination IP |  |  |
 
 ## What to capture
 
-- [ ] Screenshot: Wireshark dissector with all 4 layers expanded → `assets/03-wireshark-all-layers.png`
-- [ ] `.pcapng` capture → `assets/03-encapsulation.pcapng`
+- [ ] Packet capture saved as `assets/NN-<capture-slug>.pcapng`
+- [ ] Dissector-pane screenshot with all relevant layers expanded: save as `assets/NN-<slug>.png`
+- [ ] <Artifact-description>: save as `assets/NN-<slug>.<ext>`
+- [ ] <Artifact-description>: save as `assets/NN-<slug>.<ext>`
 
 ## Deliverable checklist
 
@@ -56,11 +72,28 @@ The lab is done when:
 
 ## Common pitfalls
 
-- Wireshark won't capture → not in `wireshark` group. `groups | grep wireshark`. If missing: `sudo usermod -aG wireshark $USER`, then log out and log back in.
-- neverssl.com redirected to HTTPS → some clients have HSTS preloads forcing HTTPS. Try a different plain-HTTP target or use curl with `--no-alpn`.
+- Did you verify wireshark group membership with `groups | grep wireshark` before starting the capture?
+- Did your capture filter actually match the traffic you intended to see?
+- Did you stop the capture before exporting, or did you let it grow unboundedly?
+- Did you pick a single packet from the conversation before expanding the dissector pane, instead of trying to interpret the whole stream at once?
+- (Optional 5th — only add if the specific lab subtype reliably surfaces a recurring trap.)
 
 ## References
 
-- K&R, Section 1.5 (Protocol layers)
-- Concept Notes 2, 8
-- [neverssl.com](http://neverssl.com)
+- K&R, Section <X.Y> (<topic name>)
+- Concept Notes <NN, NN>
+- <External URL with descriptive text>
+
+### Cross-vault link format (frontmatter-only — D-09)
+
+Every lab README opens with the following frontmatter block. The Obsidian vault discovers labs and concept-notes via these fields; no inline wikilinks live in the body of the README. Documented by Phase 3 D-09 / D-12; vault template frontmatter additions live in `/home/tc/vault/_Templates/Lab.md` and `Concept.md` (D-10 / D-11).
+
+```yaml
+---
+lab-id: <lab-NN-kebab-slug>
+plan-source: <_MASTER-PLAN/phase-NN-slug/02_week-by-week.md>
+concept-notes: ["<Concept Note Title 1>", "<Concept Note Title 2>"]
+---
+```
+
+*Last updated: 2026-05-21*

@@ -1,52 +1,51 @@
-# Lab 01 — Network Edge Mapping
+---
+lab-id: lab-01-network-edge-mapping
+plan-source: _MASTER-PLAN/phase-01-networking-foundations/02-NetworkingFoundation_week-by-week.md
+concept-notes: ["What Is the Internet", "What Is a Protocol", "Network Edge, Access Networks, Physical Media"]
+---
+
+# Lab NN — <Verb-phrase Title>
 
 ## Objective
 
-Map your local host's network identity. Concretely answer: what am I, where am I, who do I talk to first?
+Map your host's local network identity end-to-end.
 
 ## Why this lab exists
 
-- **Reinforces Concept Notes:** 1, 2, 3
-- **K&R sections covered:** 1.2 (Network edge)
-- **Decision Gate 1 connection:** Indirect prep. Builds the foundation for naming end systems and identifying the access network, which Gate 1 layering questions assume.
+- **Reinforces Concept Notes:** <NN, NN[, NN]>
+- **K&R sections covered:** <X.Y[, X.Y]>
+- **Decision Gate N connection:** <One sentence: direct prep / indirect prep / no connection — and why.>
 
 ## Prerequisites
 
 Verify each tool works before starting:
 
-- [ ] `hostname`
-- [ ] `ip a`
-- [ ] `ip route`
-- [ ] `resolvectl status` (or `cat /etc/resolv.conf`)
-- [ ] `ethtool --version` (wired) or `iw --version` (wireless)
-- [ ] `curl --version`
-- [ ] `ping -c 1 127.0.0.1`
+- [ ] `<command --version or test invocation>`
+- [ ] `<command --version or test invocation>`
+- [ ] `<command --version or test invocation>`
+- [ ] `<command --version or test invocation>`
+- [ ] `<command --version or test invocation>`
 
 If any fail, fix per Phase 00 install notes before continuing.
 
 ## Estimated time
 
-1.5 hrs.
+<N hrs.>
 
 ## Procedure
 
-1. **Identify hostname.** Command: `hostname`.
-2. **List interfaces and MAC addresses.** Command: `ip a`.
-3. **Read your IPv4 address(es)** from the `ip a` output for each active interface.
-4. **Identify default gateway.** Command: `ip route`.
-5. **Identify DNS server(s).** Command: `resolvectl status` (or `cat /etc/resolv.conf`).
-6. **Identify link speed of the active interface.** For wired: `ethtool <iface>`. For wireless: `iw dev <iface> link`.
-7. **Identify your public IP.** Command: `curl ifconfig.me` (or `curl ipinfo.io/ip`).
-8. **Classify your access network type** (DSL / Cable / Fiber / Mobile hotspot). Cite the evidence you used.
-9. **Ping your gateway.** Command: `ping -c 4 <gateway-ip>`. Record round-trip times.
-10. **Ping a public anycast resolver.** Command: `ping -c 4 8.8.8.8`. Record round-trip times.
+1. **<Verb-phrase step name>.** Command: `<command-with-<placeholders>>`.
+2. **<Verb-phrase step name>.** Command: `<command-with-<placeholders>>`.
+3. **<Verb-phrase step name>.** Command: `<command-with-<placeholders>>`.
+4. **<Verb-phrase step name>.** Command: `<command-with-<placeholders>>`.
+5. **<Verb-phrase step name>.** Command: `<command-with-<placeholders>>`.
 
 ## What to capture
 
-- [ ] Screenshot: `ip a` output → save as `assets/01-ip-a.png`
-- [ ] Screenshot: `ip route` output → save as `assets/01-ip-route.png`
-- [ ] Text output: public IP curl result → paste into lab-notes
-- [ ] Text output: ping results (min/avg/max RTT to gateway and to 8.8.8.8) → paste into lab-notes
+- [ ] <Artifact-description>: save as `assets/NN-<slug>.<ext>`
+- [ ] <Artifact-description>: save as `assets/NN-<slug>.<ext>`
+- [ ] <Artifact-description>: save as `assets/NN-<slug>.<ext>`
+- [ ] <Artifact-description>: save as `assets/NN-<slug>.<ext>`
 
 ## Deliverable checklist
 
@@ -60,10 +59,28 @@ The lab is done when:
 
 ## Common pitfalls
 
-- `ip a` shows nothing useful → you're not connected to a network. Connect to wifi or plug in, then re-run.
-- `ethtool` permission denied → try `sudo ethtool <iface>`.
+- Did you verify each prerequisite tool runs cleanly before starting?
+- Have you captured every artifact named in the Deliverable checklist before answering analysis questions?
+- Did you write each observation in your own words before checking external references?
+- Did you record exact command flags as you ran them — including any sudo / interface name / IP substitutions?
+- (Optional 5th — only add if the specific lab subtype reliably surfaces a recurring trap.)
 
 ## References
 
-- K&R, Section 1.2 (Network edge)
-- Concept Notes 1, 2, 3
+- K&R, Section <X.Y> (<topic name>)
+- Concept Notes <NN, NN>
+- <External URL with descriptive text>
+
+### Cross-vault link format (frontmatter-only — D-09)
+
+Every lab README opens with the following frontmatter block. The Obsidian vault discovers labs and concept-notes via these fields; no inline wikilinks live in the body of the README. Documented by Phase 3 D-09 / D-12; vault template frontmatter additions live in `/home/tc/vault/_Templates/Lab.md` and `Concept.md` (D-10 / D-11).
+
+```yaml
+---
+lab-id: <lab-NN-kebab-slug>
+plan-source: <_MASTER-PLAN/phase-NN-slug/02_week-by-week.md>
+concept-notes: ["<Concept Note Title 1>", "<Concept Note Title 2>"]
+---
+```
+
+*Last updated: 2026-05-21*

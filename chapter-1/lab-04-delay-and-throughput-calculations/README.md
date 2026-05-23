@@ -1,44 +1,51 @@
-# Lab 04 — Delay & Throughput Calculations
+---
+lab-id: lab-04-delay-and-throughput-calculations
+plan-source: _MASTER-PLAN/phase-01-networking-foundations/02-NetworkingFoundation_week-by-week.md
+concept-notes: ["Performance — The Four Components Of Delay", "Performance — Loss & Throughput"]
+---
+
+# Lab NN — <Verb-phrase Title>
 
 ## Objective
 
-Quantify your connection. Convert vague intuition into measured numbers and the formulas that explain them.
+Measure local latency and throughput against a published baseline.
 
 ## Why this lab exists
 
-- **Reinforces Concept Notes:** 6, 7
-- **K&R sections covered:** 1.4 (Delay, loss, throughput)
-- **Decision Gate 1 connection:** Indirect prep. Numeric fluency with delay components and throughput math underpins Gate 1 analysis questions.
+- **Reinforces Concept Notes:** <NN, NN[, NN]>
+- **K&R sections covered:** <X.Y[, X.Y]>
+- **Decision Gate N connection:** <One sentence: direct prep / indirect prep / no connection — and why.>
 
 ## Prerequisites
 
 Verify each tool works before starting:
 
-- [ ] `ping -c 1 8.8.8.8`
-- [ ] Browser open to `https://speedtest.net` or `https://fast.com`
-- [ ] Calculator / unit-conversion ready (or `python3` / `bc` on hand)
+- [ ] `<command --version or test invocation>`
+- [ ] `<command --version or test invocation>`
+- [ ] `<command --version or test invocation>`
+- [ ] `<command --version or test invocation>`
+- [ ] `<command --version or test invocation>`
 
 If any fail, fix per Phase 00 install notes before continuing.
 
 ## Estimated time
 
-1.5–2 hrs.
+<N hrs.>
 
 ## Procedure
 
-1. **RTT to gateway.** Command: `ping -c 20 <gateway>`. Record min/avg/max.
-2. **RTT to public anycast.** Command: `ping -c 20 8.8.8.8`. Record min/avg/max.
-3. **RTT to a coast-opposite US server (distant host).** Command: `ping -c 20 <distant_host>`. Record min/avg/max.
-4. **Throughput.** Open speedtest.net or fast.com. Run a test. Record download and upload bandwidth in Mbps.
-5. **Calculation A — 1 MB transmission delay.** For a 1 MB file (8,388,608 bits) at your measured download bandwidth: what is the transmission delay?
-6. **Calculation B — 1500-byte packet on 1 Gbps.** For a 1500-byte packet on a 1 Gbps link: what is the transmission delay?
-7. **Calculation C — propagation delay vs measured RTT.** Given the RTT to a host ~1500 km away, calculate propagation delay (assume signal ~2×10⁸ m/s in fiber). Compare to measured RTT — is the remainder queuing/processing/transmission?
-8. **Loss.** If pings showed loss, calculate loss rate. If none, simulate: `ping -c 100 -i 0.01 -s 1000 <host>`.
+1. **<Verb-phrase step name>.** Command: `<command-with-<placeholders>>`.
+2. **<Verb-phrase step name>.** Command: `<command-with-<placeholders>>`.
+3. **<Verb-phrase step name>.** Command: `<command-with-<placeholders>>`.
+4. **<Verb-phrase step name>.** Command: `<command-with-<placeholders>>`.
+5. **<Verb-phrase step name>.** Command: `<command-with-<placeholders>>`.
 
 ## What to capture
 
-- [ ] All ping outputs (text) → paste into lab-notes
-- [ ] Speedtest result → screenshot to `assets/04-speedtest.png`
+- [ ] <Artifact-description>: save as `assets/NN-<slug>.<ext>`
+- [ ] <Artifact-description>: save as `assets/NN-<slug>.<ext>`
+- [ ] <Artifact-description>: save as `assets/NN-<slug>.<ext>`
+- [ ] <Artifact-description>: save as `assets/NN-<slug>.<ext>`
 
 ## Deliverable checklist
 
@@ -47,16 +54,33 @@ The lab is done when:
 - [ ] All procedure steps executed
 - [ ] All "What to capture" items present in `assets/`
 - [ ] All analysis questions in lab-notes answered in my own words
-- [ ] All calculations show formulas, not just final numbers
 - [ ] Reflection section completed
 - [ ] Status field in lab-notes set to "Complete"
 
 ## Common pitfalls
 
-- "I confuse latency and throughput" → Latency = how long until first bit arrives. Throughput = how many bits/sec arrive once flowing. Freight train analogy: latency is time-to-first-car, throughput is cars-per-minute.
-- Speedtest variance: run twice and use the better reading, or note both.
+- Did you verify each prerequisite tool runs cleanly before starting?
+- Have you captured every artifact named in the Deliverable checklist before answering analysis questions?
+- Did you write each observation in your own words before checking external references?
+- Did you record exact command flags as you ran them — including any sudo / interface name / IP substitutions?
+- (Optional 5th — only add if the specific lab subtype reliably surfaces a recurring trap.)
 
 ## References
 
-- K&R, Section 1.4 (Delay, loss, throughput)
-- Concept Notes 6, 7
+- K&R, Section <X.Y> (<topic name>)
+- Concept Notes <NN, NN>
+- <External URL with descriptive text>
+
+### Cross-vault link format (frontmatter-only — D-09)
+
+Every lab README opens with the following frontmatter block. The Obsidian vault discovers labs and concept-notes via these fields; no inline wikilinks live in the body of the README. Documented by Phase 3 D-09 / D-12; vault template frontmatter additions live in `/home/tc/vault/_Templates/Lab.md` and `Concept.md` (D-10 / D-11).
+
+```yaml
+---
+lab-id: <lab-NN-kebab-slug>
+plan-source: <_MASTER-PLAN/phase-NN-slug/02_week-by-week.md>
+concept-notes: ["<Concept Note Title 1>", "<Concept Note Title 2>"]
+---
+```
+
+*Last updated: 2026-05-21*

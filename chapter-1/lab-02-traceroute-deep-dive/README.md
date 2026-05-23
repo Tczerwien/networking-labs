@@ -1,63 +1,86 @@
-# Lab 02 — Traceroute Deep Dive
+---
+lab-id: lab-02-traceroute-deep-dive
+plan-source: _MASTER-PLAN/phase-01-networking-foundations/02-NetworkingFoundation_week-by-week.md
+concept-notes: ["Network Core & ISP Hierarchy", "Performance — The Four Components Of Delay"]
+---
+
+# Lab NN — <Verb-phrase Title>
 
 ## Objective
 
-Make ISP hierarchy and core routing visible. Trace packet paths to multiple destinations and decode the topology.
+Trace the path packets take to three diverse destinations.
 
 ## Why this lab exists
 
-- **Reinforces Concept Notes:** 5 (especially), 6 (delay components visible in latency jumps)
-- **K&R sections covered:** 1.3 (Network core)
-- **Decision Gate 1 connection:** Indirect prep. Builds the mental model of tiered ISPs and packet-switched paths that Gate 1 routing questions depend on.
+- **Reinforces Concept Notes:** <NN, NN[, NN]>
+- **K&R sections covered:** <X.Y[, X.Y]>
+- **Decision Gate N connection:** <One sentence: direct prep / indirect prep / no connection — and why.>
 
 ## Prerequisites
 
 Verify each tool works before starting:
 
-- [ ] `traceroute --version` (or `mtr --version`)
-- [ ] `whois --version`
-- [ ] `ping -c 1 1.1.1.1` (confirm Internet reachable)
+- [ ] `<command --version or test invocation>`
+- [ ] `<command --version or test invocation>`
+- [ ] `<command --version or test invocation>`
+- [ ] `<command --version or test invocation>`
+- [ ] `<command --version or test invocation>`
 
 If any fail, fix per Phase 00 install notes before continuing.
 
 ## Estimated time
 
-2 hrs.
+<N hrs.>
 
 ## Procedure
 
-1. **Trace to a near destination.** Pick `cloudflare.com` or your ISP's website. Command: `traceroute cloudflare.com` (or `mtr -r -c 30 cloudflare.com` for cleaner output).
-2. **Trace to a far US destination.** Pick `amazon.com` or `microsoft.com`. Command: `traceroute amazon.com` (or `mtr -r -c 30 amazon.com`).
-3. **Trace to an international destination.** Pick `bbc.co.uk`, `nikkei.com`, or `lemonde.fr`. Command: `traceroute bbc.co.uk` (or `mtr -r -c 30 bbc.co.uk`).
-4. **Capture each full output.** For each trace, identify:
-    - First 1–3 hops (your local network and ISP entry)
-    - Hops where latency jumps significantly (long-haul or transcontinental links)
-    - Last hops (destination's network)
-5. **ASN lookups.** Pick 5–10 interesting hop IPs across the three traces. Look up ASN and AS owner with `whois <ip>` or via [bgp.tools](https://bgp.tools/).
+1. **<Verb-phrase step name>.** Command: `<command-with-<placeholders>>`.
+2. **<Verb-phrase step name>.** Command: `<command-with-<placeholders>>`.
+3. **<Verb-phrase step name>.** Command: `<command-with-<placeholders>>`.
+4. **<Verb-phrase step name>.** Command: `<command-with-<placeholders>>`.
+5. **<Verb-phrase step name>.** Command: `<command-with-<placeholders>>`.
 
 ## What to capture
 
-- [ ] Three full traceroute outputs → paste into lab-notes (or screenshots → `assets/02-trace-near.png`, `assets/02-trace-far-us.png`, `assets/02-trace-intl.png`)
-- [ ] ASN lookups for ≥5 hops across the three traces → paste into lab-notes
-- [ ] Optional: hand-drawn or ASCII-art diagram of the path through tiers → `assets/02-topology.png` or pasted into lab-notes
+- [ ] <Artifact-description>: save as `assets/NN-<slug>.<ext>`
+- [ ] <Artifact-description>: save as `assets/NN-<slug>.<ext>`
+- [ ] <Artifact-description>: save as `assets/NN-<slug>.<ext>`
+- [ ] <Artifact-description>: save as `assets/NN-<slug>.<ext>`
 
 ## Deliverable checklist
 
 The lab is done when:
 
 - [ ] All procedure steps executed
-- [ ] All "What to capture" items present in `assets/` or in lab-notes
+- [ ] All "What to capture" items present in `assets/`
 - [ ] All analysis questions in lab-notes answered in my own words
 - [ ] Reflection section completed
 - [ ] Status field in lab-notes set to "Complete"
 
 ## Common pitfalls
 
-- `* * *` for many hops → many routers don't respond to traceroute probes (firewall policy). Try `traceroute -T` (TCP-based) or `mtr -r -c 30`.
-- Many stars beyond hop 2 → your ISP may have aggressive ICMP filtering. Note this; it's itself an observation.
+- Did you verify each prerequisite tool runs cleanly before starting?
+- Have you captured every artifact named in the Deliverable checklist before answering analysis questions?
+- Did you write each observation in your own words before checking external references?
+- Did you record exact command flags as you ran them — including any sudo / interface name / IP substitutions?
+- (Optional 5th — only add if the specific lab subtype reliably surfaces a recurring trap.)
 
 ## References
 
-- K&R, Section 1.3 (Network core)
-- Concept Notes 5, 6
-- [bgp.tools](https://bgp.tools/)
+- K&R, Section <X.Y> (<topic name>)
+- Concept Notes <NN, NN>
+- <External URL with descriptive text>
+
+### Cross-vault link format (frontmatter-only — D-09)
+
+Every lab README opens with the following frontmatter block. The Obsidian vault discovers labs and concept-notes via these fields; no inline wikilinks live in the body of the README. Documented by Phase 3 D-09 / D-12; vault template frontmatter additions live in `/home/tc/vault/_Templates/Lab.md` and `Concept.md` (D-10 / D-11).
+
+```yaml
+---
+lab-id: <lab-NN-kebab-slug>
+plan-source: <_MASTER-PLAN/phase-NN-slug/02_week-by-week.md>
+concept-notes: ["<Concept Note Title 1>", "<Concept Note Title 2>"]
+---
+```
+
+*Last updated: 2026-05-21*

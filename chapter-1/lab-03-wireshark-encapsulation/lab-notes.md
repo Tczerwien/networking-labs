@@ -1,4 +1,4 @@
-# Lab 03 — Wireshark Encapsulation — Lab Notes
+# Lab NN — <Verb-phrase Title> — Lab Notes
 
 **Date started:** _____
 **Date completed:** _____
@@ -10,139 +10,110 @@
 ## Setup verification
 
 - [ ] All prerequisite tools verified per README
-- [ ] Connected to network (wifi or wired)
-- [ ] Confirmed wireshark group membership (`groups | grep wireshark`)
-- [ ] Logged out and back in after wireshark group membership change (if applicable)
+- [ ] Wireshark group membership active in current shell
+- [ ] Capture interface identified below
+- [ ] <Lab-specific active-context identifier captured below>
+
+> Active interface:
+
+> 
+
+> Capture file path (will resolve under `assets/`):
+
+> 
 
 ---
 
 ## Step-by-step record
 
-### Step 1 — Open Wireshark, pick active interface
-
-**Interface chosen:**
-
-> 
-
----
-
-### Step 2 — Start capture (no filter)
-
-**Capture start time:**
-
-> 
-
----
-
-### Step 3 — Generate plain-HTTP traffic
+### Step 1 — <Verb-phrase from Procedure>
 
 **Command:**
 
 ```bash
-curl http://neverssl.com
+<command-with-<placeholders>>
 ```
 
-**Curl output:**
+**Output:**
 
 ```text
 
 ```
 
-**Resolved IP of neverssl.com (from curl output or `dig neverssl.com`):**
+**What I observe:**
 
 > 
 
 ---
 
-### Step 4 — Apply Wireshark filter
+### Step 2 — <Verb-phrase from Procedure>
 
-**Filter:**
+**Command:**
 
-```text
-http and ip.addr == <neverssl-ip>
+```bash
+<command-with-<placeholders>>
 ```
 
-**How many packets matched:**
+**Output:**
+
+```text
+
+```
+
+**What I observe:**
 
 > 
 
 ---
 
-### Step 5 — Pick one HTTP GET packet, expand all layers
+### Step 3 — <Verb-phrase from Procedure>
 
-**Frame number selected:**
+**Command:**
+
+```bash
+<command-with-<placeholders>>
+```
+
+**Output:**
+
+```text
+
+```
+
+**What I observe:**
 
 > 
 
-**Screenshot:**
-
-![Wireshark dissector — all 4 layers expanded](./assets/03-wireshark-all-layers.png)
+_Step count above is a template default. Phase 5 substitutes one Step N section per Procedure step in the paired spec.md._
 
 ---
 
-### Step 6 — Header field decode
+## Per-layer field interpretation
 
-#### Ethernet
+| Layer | Field name | Observed value | What it identifies |
+|-------|------------|----------------|--------------------|
+| Ethernet | Source MAC |  |  |
+| Ethernet | Destination MAC |  |  |
+| IP | Source IP |  |  |
+| IP | Destination IP |  |  |
 
-| Field | Value | What it does (my words) |
-|-------|-------|--------------------------|
-| Source MAC |  |  |
-| Destination MAC |  |  |
-| EtherType |  |  |
+> Capture file reference (under `assets/NN-<capture-slug>.pcapng`):
 
-#### IP (v4)
-
-| Field | Value | What it does (my words) |
-|-------|-------|--------------------------|
-| Source IP |  |  |
-| Destination IP |  |  |
-| TTL |  |  |
-| Protocol number |  |  |
-| Total length |  |  |
-
-#### TCP
-
-| Field | Value | What it does (my words) |
-|-------|-------|--------------------------|
-| Source port |  |  |
-| Destination port |  |  |
-| Sequence number |  |  |
-| Ack number |  |  |
-| Flags (SYN/ACK/PSH/FIN) |  |  |
-| Window size |  |  |
-
-#### HTTP
-
-| Field | Value | What it does (my words) |
-|-------|-------|--------------------------|
-| Request line (method / path / version) |  |  |
-| Host header |  |  |
-| User-Agent header |  |  |
-| Accept header |  |  |
-
----
-
-### Step 7 — Save capture
-
-- [ ] Saved to `assets/03-encapsulation.pcapng`
+> 
 
 ---
 
 ## Analysis questions
 
-**Question 1:** For each of the ~20 header fields above, the one-sentence explanation is filled in. Anything that surprised me about a field's purpose or default value:
+**Question 1:** <Open-ended question about what the capture revealed about the per-layer encapsulation under test>?
 
 > 
 
-**Question 2:** Did I see any ARP traffic during the capture? What is it doing? (1 sentence — deep ARP comes in Phase 04+.)
+**Question 2:** <Open-ended question about why the observed field values make sense given the underlying protocol>?
 
 > 
 
-**Question 3:** If I removed any one header field, what would break and at what layer? Pick one field from each of Ethernet / IP / TCP / HTTP.
-
-> 
-
-**Question 4:** Where does encapsulation "end" on my host's side? Which layer hands the frame to the wire?
+**Question 3:** <Open-ended question that connects this capture's findings to the next concept or lab>?
 
 > 
 
@@ -164,14 +135,14 @@ http and ip.addr == <neverssl-ip>
 
 ---
 
-## Decision Gate 1 connection
+## Decision Gate N connection
 
-This lab IS the preliminary version of Gate 1.
-
-**Could I redo this lab from scratch — no notes, no spec, just the goal — and produce the same decode?**
+**Which Decision Gate N question does this lab prepare me for?**
 
 > 
 
 **Could I demo this lab's key finding in 60 seconds to a peer?**
 
 > 
+
+*Last updated: 2026-05-21*

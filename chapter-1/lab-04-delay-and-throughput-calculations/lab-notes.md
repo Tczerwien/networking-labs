@@ -1,4 +1,4 @@
-# Lab 04 — Delay & Throughput Calculations — Lab Notes
+# Lab NN — <Verb-phrase Title> — Lab Notes
 
 **Date started:** _____
 **Date completed:** _____
@@ -10,22 +10,23 @@
 ## Setup verification
 
 - [ ] All prerequisite tools verified per README
-- [ ] Connected to network (wifi or wired)
-- [ ] Picked which distant host I will use, and noted its approximate distance from me
+- [ ] <Lab-specific environment precondition>
+- [ ] <Lab-specific active-context identifier captured below>
 
-> Distant host:
-> Approximate distance (km):
+> <Active context (interface / target / VM):>
+
+> 
 
 ---
 
 ## Step-by-step record
 
-### Step 1 — RTT to gateway
+### Step 1 — <Verb-phrase from Procedure>
 
 **Command:**
 
 ```bash
-ping -c 20 <gateway>
+<command-with-<placeholders>>
 ```
 
 **Output:**
@@ -34,18 +35,18 @@ ping -c 20 <gateway>
 
 ```
 
-**min / avg / max (ms):**
+**What I observe:**
 
 > 
 
 ---
 
-### Step 2 — RTT to 8.8.8.8
+### Step 2 — <Verb-phrase from Procedure>
 
 **Command:**
 
 ```bash
-ping -c 20 8.8.8.8
+<command-with-<placeholders>>
 ```
 
 **Output:**
@@ -54,18 +55,18 @@ ping -c 20 8.8.8.8
 
 ```
 
-**min / avg / max (ms):**
+**What I observe:**
 
 > 
 
 ---
 
-### Step 3 — RTT to distant host
+### Step 3 — <Verb-phrase from Procedure>
 
 **Command:**
 
 ```bash
-ping -c 20 <distant_host>
+<command-with-<placeholders>>
 ```
 
 **Output:**
@@ -74,169 +75,25 @@ ping -c 20 <distant_host>
 
 ```
 
-**min / avg / max (ms):**
+**What I observe:**
 
 > 
 
----
-
-### Step 4 — Throughput
-
-**Service used (speedtest.net / fast.com):**
-
-> 
-
-**Screenshot:**
-
-![Speedtest result](./assets/04-speedtest.png)
-
-**Download (Mbps):**
-
-> 
-
-**Upload (Mbps):**
-
-> 
-
----
-
-### Step 5 — Calculation A: 1 MB transmission delay
-
-**Bits in 1 MB:** 8,388,608
-
-**My download bandwidth (bps):**
-
-> 
-
-**Formula:**
-
-```text
-transmission_delay = file_size_bits / bandwidth_bps
-```
-
-**Work:**
-
-> 
-
-**Result (seconds):**
-
-> 
-
----
-
-### Step 6 — Calculation B: 1500-byte packet on 1 Gbps
-
-**Packet size (bits):**
-
-> 
-
-**Bandwidth:** 1,000,000,000 bps
-
-**Formula:**
-
-```text
-transmission_delay = packet_size_bits / bandwidth_bps
-```
-
-**Work:**
-
-> 
-
-**Result (seconds / microseconds):**
-
-> 
-
----
-
-### Step 7 — Calculation C: propagation delay vs measured RTT
-
-**Distance to host (one-way, m):**
-
-> 
-
-**Signal speed in fiber:** 2 × 10⁸ m/s
-
-**Formula:**
-
-```text
-propagation_delay_one_way = distance_m / signal_speed_mps
-propagation_only_rtt    = 2 × propagation_delay_one_way
-```
-
-**Work:**
-
-> 
-
-**Theoretical propagation-only RTT (ms):**
-
-> 
-
-**Measured RTT (avg) to that host (ms):**
-
-> 
-
-**Gap (measured − theoretical, ms):**
-
-> 
-
-**Where the gap likely lives (queuing / processing / transmission):**
-
-> 
-
----
-
-### Step 8 — Loss
-
-**Did natural pings show loss? If yes, rate:**
-
-> 
-
-**If no, simulated stress test command:**
-
-```bash
-ping -c 100 -i 0.01 -s 1000 <host>
-```
-
-**Output:**
-
-```text
-
-```
-
-**Loss rate observed:**
-
-> 
+_Step count above is a template default. Phase 5 substitutes one Step N section per Procedure step in the paired spec.md._
 
 ---
 
 ## Analysis questions
 
-**Question 1 — Measurements table.** Fill in once everything above is done.
-
-| Host | RTT min (ms) | RTT avg (ms) | RTT max (ms) |
-|------|--------------|--------------|--------------|
-| Gateway |  |  |  |
-| 8.8.8.8 |  |  |  |
-| Distant host |  |  |  |
-
-| Throughput | Mbps |
-|------------|------|
-| Download |  |
-| Upload |  |
-
-**Question 2:** All calculations above show formulas, not just final numbers. Is there a step where I had to make an assumption (e.g., "I treated 1 MB as 8,388,608 bits, not 8,000,000 bits, because...")? Note it here.
+**Question 1:** <Open-ended question about what the procedure revealed about the system under test>?
 
 > 
 
-**Question 3:** For my distant host: measured RTT vs theoretical propagation-only RTT. What accounts for the gap?
+**Question 2:** <Open-ended question about why the observed behavior makes sense given the underlying concept>?
 
 > 
 
-**Question 4:** If my download throughput is X Mbps, can I receive Y simultaneous video streams of Z Mbps? Show reasoning.
-
-> 
-
-**Question 5:** Which delay component am I most surprised by — and why?
+**Question 3:** <Open-ended question that connects this lab's findings to the next concept or lab>?
 
 > 
 
@@ -258,12 +115,14 @@ ping -c 100 -i 0.01 -s 1000 <host>
 
 ---
 
-## Decision Gate 1 connection
+## Decision Gate N connection
 
-**Which Decision Gate 1 question does this lab prepare me for?**
+**Which Decision Gate N question does this lab prepare me for?**
 
 > 
 
 **Could I demo this lab's key finding in 60 seconds to a peer?**
 
 > 
+
+*Last updated: 2026-05-21*

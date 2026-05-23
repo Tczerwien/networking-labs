@@ -1,4 +1,4 @@
-# Lab 05 — HTTP vs HTTPS — Lab Notes
+# Lab NN — <Verb-phrase Title> — Lab Notes
 
 **Date started:** _____
 **Date completed:** _____
@@ -10,115 +10,94 @@
 ## Setup verification
 
 - [ ] All prerequisite tools verified per README
-- [ ] Connected to network (wifi or wired)
-- [ ] Confirmed wireshark group membership
+- [ ] Wireshark group membership active in current shell
+- [ ] Capture interface identified below
+- [ ] <Lab-specific active-context identifier captured below>
+
+> Active interface:
+
+> 
+
+> Capture file path (will resolve under `assets/`):
+
+> 
 
 ---
 
 ## Step-by-step record
 
-### Step 1 — Start Wireshark capture
-
-**Interface chosen:**
-
-> 
-
-**Capture start time:**
-
-> 
-
----
-
-### Step 2 — HTTP request
+### Step 1 — <Verb-phrase from Procedure>
 
 **Command:**
 
 ```bash
-curl -v http://neverssl.com
+<command-with-<placeholders>>
 ```
 
-**Curl output:**
+**Output:**
 
 ```text
 
 ```
 
+**What I observe:**
+
+> 
+
 ---
 
-### Step 3 — HTTPS request
+### Step 2 — <Verb-phrase from Procedure>
 
 **Command:**
 
 ```bash
-curl -v https://wikipedia.org
+<command-with-<placeholders>>
 ```
 
-**Curl output:**
+**Output:**
 
 ```text
 
 ```
 
----
-
-### Step 4 — Stop and save capture
-
-- [ ] Saved to `assets/05-http-vs-https.pcapng`
-
----
-
-### Step 5 — HTTP analysis (filter `http`)
-
-**Filter applied:**
-
-```text
-http
-```
-
-**Screenshot:**
-
-![HTTP packet — fully readable](./assets/05-http-readable.png)
-
-| Item | Value observed in Wireshark |
-|------|------------------------------|
-| Request method |  |
-| URL |  |
-| Host header |  |
-| Response status |  |
-| Response body (first ~80 chars) |  |
-
-**Confirmation that everything was readable:**
+**What I observe:**
 
 > 
 
 ---
 
-### Step 6 — HTTPS analysis (filter `tls`)
+### Step 3 — <Verb-phrase from Procedure>
 
-**Filter applied:**
+**Command:**
 
-```text
-tls
+```bash
+<command-with-<placeholders>>
 ```
 
-**Screenshot:**
+**Output:**
 
-![HTTPS — encrypted Application Data unreadable](./assets/05-https-encrypted.png)
+```text
 
-#### TLS handshake packets observed
+```
 
-| Frame # | Handshake message type (ClientHello / ServerHello / Certificate / etc.) | Notes |
-|---------|--------------------------------------------------------------------------|-------|
-|         |                                                                          |       |
-|         |                                                                          |       |
-|         |                                                                          |       |
-|         |                                                                          |       |
-
-**Frame at which conversation switches to encrypted Application Data:**
+**What I observe:**
 
 > 
 
-**Confirmation that HTTP method / URL / body are NOT visible in any Application Data packet:**
+_Step count above is a template default. Phase 5 substitutes one Step N section per Procedure step in the paired spec.md._
+
+---
+
+## Per-layer field interpretation
+
+| Layer | Field name | Observed value | What it identifies |
+|-------|------------|----------------|--------------------|
+| Ethernet | Source MAC |  |  |
+| Ethernet | Destination MAC |  |  |
+| IP | Source IP |  |  |
+| IP | Destination IP |  |  |
+
+> Capture file reference (under `assets/NN-<capture-slug>.pcapng`):
 
 > 
 
@@ -126,23 +105,15 @@ tls
 
 ## Analysis questions
 
-**Question 1a — sniffer on coffee-shop wifi, HTTP:** What can they see / steal / modify?
+**Question 1:** <Open-ended question about what the capture revealed about the per-layer encapsulation under test>?
 
 > 
 
-**Question 1b — sniffer on coffee-shop wifi, HTTPS:** What can they still see (destination IP, SNI, traffic timing, packet sizes)? What is hidden?
+**Question 2:** <Open-ended question about why the observed field values make sense given the underlying protocol>?
 
 > 
 
-**Question 2:** Why does TLS happen below HTTP but above TCP? What would break if we put it elsewhere?
-
-> 
-
-**Question 3:** What is SNI and why is it controversial?
-
-> 
-
-**Question 4:** Looking at the same conversation, which fields are visible in both HTTP and HTTPS captures, and which only in HTTP?
+**Question 3:** <Open-ended question that connects this capture's findings to the next concept or lab>?
 
 > 
 
@@ -164,12 +135,14 @@ tls
 
 ---
 
-## Decision Gate 1 connection
+## Decision Gate N connection
 
-**Which Decision Gate 1 question does this lab prepare me for?**
+**Which Decision Gate N question does this lab prepare me for?**
 
 > 
 
 **Could I demo this lab's key finding in 60 seconds to a peer?**
 
 > 
+
+*Last updated: 2026-05-21*
