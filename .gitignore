@@ -1,0 +1,22 @@
+# OS junk
+.DS_Store
+Thumbs.db
+*~
+*.swp
+*.swo
+
+# Editor junk
+.vscode/
+.idea/
+*.code-workspace
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# --- per-repo additions: Wireshark autosave/extcap temp files ---
+# Note: committed .pcapng files are intentional lab deliverables (per CLAUDE.md
+# "Per-Lab Folder Structure") — DO NOT add `*.pcapng` to this list.
+*.pcapng.tmp
+wireshark_*
