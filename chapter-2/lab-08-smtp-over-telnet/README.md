@@ -123,10 +123,10 @@ The lab is done when:
 - IANA Service Name and Transport Protocol Port Number Registry: <https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml>
 
 <!-- citations-v1.1
-K&R 8e §2.3.1 (SMTP) [sha256:b72be7ccd691] 2026-05-25
-K&R 8e §2.3 (Electronic Mail in the Internet) [sha256:52d66e58fb65] 2026-05-25
-RFC 5321 §3.3 (Mail Transactions) [sha256:0958fc2045f2] 2026-05-25
-IANA Service Names and Port Numbers (SMTP entries) [sha256:3d199db6dbf6] 2026-05-25
+- K&R 8e §2.3.1 (SMTP) [sha256:b72be7ccd691] 2026-05-25
+- K&R 8e §2.3 (Electronic Mail in the Internet) [sha256:52d66e58fb65] 2026-05-25
+- RFC 5321 §3.3 (Mail Transactions) [sha256:0958fc2045f2] 2026-05-25
+- IANA Service Names and Port Numbers (SMTP entries) [sha256:3d199db6dbf6] 2026-05-25
 <!-- /citations-v1.1 -->
 
 *Last updated: 2026-05-25 — Phase 8 Plan 08-02 enrichment per NET-01*

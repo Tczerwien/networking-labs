@@ -90,10 +90,10 @@ The lab is done when:
 - Python `socket` module reference: <https://docs.python.org/3/library/socket.html>
 
 <!-- citations-v1.1
-K&R 8e §2.7.1 (Socket Programming with UDP) [sha256:980ae432d642] 2026-05-25
-Lecture6 00:14:00-00:50:00 (Datagram socket vs stream socket) [sha256:434d8c342d5b] 2026-05-25
-RFC 8085 §3 (UDP Usage Guidelines — Overview of UDP) [sha256:64d3c95953e6] 2026-05-25
-Python docs library/socket §socket.socket [sha256:6030aee0626d] 2026-05-25
+- K&R 8e §2.7.1 (Socket Programming with UDP) [sha256:980ae432d642] 2026-05-25
+- Lecture6 00:14:00-00:50:00 (Datagram socket vs stream socket) [sha256:434d8c342d5b] 2026-05-25
+- RFC 8085 §3 (UDP Usage Guidelines — Overview of UDP) [sha256:64d3c95953e6] 2026-05-25
+- Python docs library/socket §socket.socket [sha256:6030aee0626d] 2026-05-25
 <!-- /citations-v1.1 -->
 
 *Last updated: 2026-05-25 — Phase 8 Plan 08-02 enrichment per NET-01*

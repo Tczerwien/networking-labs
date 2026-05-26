@@ -88,10 +88,10 @@ The lab is done when:
 - Python `socket` module reference: <https://docs.python.org/3/library/socket.html>
 
 <!-- citations-v1.1
-K&R 8e §2.7.2 (Socket Programming with TCP) [sha256:a456a133151d] 2026-05-25
-Lecture7 00:30:00-00:50:00 (TCP socket programming: listen / accept / connect) [sha256:b3534375580a] 2026-05-25
-RFC 9293 §3.5 (Establishing a Connection) [sha256:d333e195a9bf] 2026-05-25
-Python docs library/socket §socket.listen [sha256:f8bea2435194] 2026-05-25
+- K&R 8e §2.7.2 (Socket Programming with TCP) [sha256:a456a133151d] 2026-05-25
+- Lecture7 00:30:00-00:50:00 (TCP socket programming: listen / accept / connect) [sha256:b3534375580a] 2026-05-25
+- RFC 9293 §3.5 (Establishing a Connection) [sha256:d333e195a9bf] 2026-05-25
+- Python docs library/socket §socket.listen [sha256:f8bea2435194] 2026-05-25
 <!-- /citations-v1.1 -->
 
 *Last updated: 2026-05-25 — Phase 8 Plan 08-02 enrichment per NET-01*

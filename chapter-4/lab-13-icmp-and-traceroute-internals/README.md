@@ -1,7 +1,7 @@
 ---
 lab-id: lab-13-icmp-and-traceroute-internals
 plan-source: _MASTER-PLAN/phase-03-transport-network-layers/02-TransportNetworkLayers_week-by-week.md
-concept-notes: ["ICMP, Traceroute Mechanics, Routing Concepts"]
+concept-notes: ["ICMP, Traceroute Mechanics, Forwarding Concepts"]
 ---
 
 # Lab NN — <Verb-phrase Title>

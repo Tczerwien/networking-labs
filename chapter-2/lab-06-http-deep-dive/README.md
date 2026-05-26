@@ -109,10 +109,10 @@ The lab is done when:
 - MDN HTTP Headers reference: <https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers>
 
 <!-- citations-v1.1
-K&R 8e §2.2.1 (HTTP Overview) [sha256:130369a42bdc] 2026-05-25
-K&R 8e §2.2.2 (Non-Persistent and Persistent Connections) [sha256:f51abe396104] 2026-05-25
-Lecture5 00:13:24-00:14:08 (Wireshark protocol-stack walkthrough showing HTTP at top of stack) [sha256:1207a4c76e6a] 2026-05-25
-RFC 9110 §15.4.1 (200 OK) [sha256:3dc2267924d0] 2026-05-25
+- K&R 8e §2.2.1 (HTTP Overview) [sha256:130369a42bdc] 2026-05-25
+- K&R 8e §2.2.2 (Non-Persistent and Persistent Connections) [sha256:f51abe396104] 2026-05-25
+- Lecture5 00:13:24-00:14:08 (Wireshark protocol-stack walkthrough showing HTTP at top of stack) [sha256:1207a4c76e6a] 2026-05-25
+- RFC 9110 §15.4.1 (200 OK) [sha256:3dc2267924d0] 2026-05-25
 <!-- /citations-v1.1 -->
 
 *Last updated: 2026-05-25 — Phase 8 Plan 08-02 enrichment per NET-01 (lab-06 D-06 trip-wire)*

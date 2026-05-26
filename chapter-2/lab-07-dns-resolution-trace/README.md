@@ -110,10 +110,10 @@ The lab is done when:
 - IANA Root Zone Database: <https://www.iana.org/domains/root/files>
 
 <!-- citations-v1.1
-K&R 8e §2.4.2 (Overview of How DNS Works) [sha256:414e4c097594] 2026-05-25
-K&R 8e §2.4.3 (DNS Records and Messages) [sha256:5fdc3897829f] 2026-05-25
-Lecture5 01:01:00-01:15:30 (DNS Wireshark walkthrough) [sha256:711f568e9e33] 2026-05-25
-RFC 1035 §4.1.1 (DNS Message Format header section) [sha256:9722ede960ea] 2026-05-25
+- K&R 8e §2.4.2 (Overview of How DNS Works) [sha256:414e4c097594] 2026-05-25
+- K&R 8e §2.4.3 (DNS Records and Messages) [sha256:5fdc3897829f] 2026-05-25
+- Lecture5 01:01:00-01:15:30 (DNS Wireshark walkthrough) [sha256:711f568e9e33] 2026-05-25
+- RFC 1035 §4.1.1 (DNS Message Format header section) [sha256:9722ede960ea] 2026-05-25
 <!-- /citations-v1.1 -->
 
 *Last updated: 2026-05-25 — Phase 8 Plan 08-02 enrichment per NET-01*
