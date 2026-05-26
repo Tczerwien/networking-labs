@@ -74,7 +74,7 @@ The lab is done when:
 ## Common pitfalls
 
 - Did you check that port 9998 is free before starting the server? `ss -tlnp | grep 9998` shows whether anything is already bound.
-- Did you `listen()` before `accept()` in the server? K&R §2.7.2 names the listening socket the welcoming socket; without `listen()` the kernel will not queue incoming SYNs and `accept()` will block forever.
+- Did you `listen()` before `accept()` in the server? K&R §2.7.2 names the listening socket the welcoming socket; if `accept()` blocks indefinitely on connection attempts, check the sequence.
 - Did you keep the welcoming socket open after `accept()` returned the connection socket? Closing the welcoming socket would prevent the server from accepting any future clients; the welcoming socket is the persistent server-side identity and the connection socket is per-client.
 - Did the client send `bytes` and not `str`? Python's `socket.send()` requires bytes; pass `b"hello, world"` or `"hello, world".encode()`, not the bare string.
 - Did your server forget to close the connection socket after the per-client loop ended? On loopback this leaks a small amount of state per connection; the leak grows quickly under repeated tests.
