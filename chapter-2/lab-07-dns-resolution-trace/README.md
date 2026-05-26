@@ -15,7 +15,7 @@ Trace DNS resolution from a stub resolver out through the iterative hierarchy an
 
 - **Reinforces Concept Notes:** DNS — Hierarchy and Resolution; DNS Resource Records and TTL
 - **K&R sections covered:** §2.4 (DNS — The Internet's Directory Service), §2.4.2 (Overview of How DNS Works), §2.4.3 (Resource Records and Messages)
-- **Decision Gate 1 connection:** Direct prep — Decision Gate 1 asks you to open a Wireshark capture and explain every header field across the layers; this lab exercises DNS-message dissection in the same dissector pane you will use during the gate demo. K&R §2.4.3 introduces the resource record as the four-tuple (Name, Value, Type, TTL); the `dig` output sections in this lab map directly onto that tuple.
+- **Decision Gate 1 connection:** Direct prep — Decision Gate 1 asks you to open a Wireshark capture and explain every header field across the layers; this lab exercises DNS-message dissection in the same dissector pane you will use during the gate demo. K&R §2.4.3 introduces the resource record; the `dig` output sections in this lab let you build the field-level definition yourself.
 
 ## Prerequisites
 
