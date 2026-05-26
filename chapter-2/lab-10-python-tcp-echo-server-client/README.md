@@ -46,7 +46,7 @@ If any fail, fix per Phase 00 install notes before continuing.
 5. Run `python3 assets/tcp_echo_client.py` in terminal 2. Note the reply printed by the client. Inspect the server's stdout in terminal 1.
 6. Capture the traffic until both client and server have finished exchanging, then end the capture. Save the capture as `assets/01-tcp-exchange.pcapng`.
 7. Inspect the capture. Note the packets that appear at the start of the connection (before any application data is exchanged), the packets that carry the application data, and the packets that close the connection. Use the TCP flag column in the Wireshark packet list to identify each packet type.
-8. Inspect the dissector pane for the first packet of the connection. Note the source port, destination port, sequence number, acknowledgement number, and the flags field.
+8. Inspect the dissector pane for the first packet of the connection. Note the source port, destination port, sequence number, acknowledgment number, and the flags field.
 9. Compare side-by-side with Lab 09's `assets/01-udp-single.pcapng`. Note differences in total packet count and the types of packets present in each capture.
 
 ## Constraints
@@ -58,7 +58,7 @@ _Per Principle 7 — write the code yourself. Mode 2 (tutor) is fine if you get 
 - [ ] Final `tcp_echo_server.py` committed at `assets/tcp_echo_server.py`
 - [ ] Final `tcp_echo_client.py` committed at `assets/tcp_echo_client.py`
 - [ ] TCP exchange capture saved as `assets/01-tcp-exchange.pcapng`
-- [ ] Dissector-pane screenshot of one TCP packet with all layers expanded: save as `assets/02-tcp-dissector.png`
+- [ ] Dissector-pane screenshot of one transport-layer segment with all layers expanded: save as `assets/02-tcp-dissector.png`
 - [ ] Side-by-side screenshot of the Lab 09 UDP capture vs the Lab 10 TCP capture (Wireshark packet list, both visible): save as `assets/03-udp-vs-tcp-compare.png`
 
 ## Deliverable checklist
