@@ -48,7 +48,7 @@ If any fail, fix per Phase 00 install notes before continuing.
 5. Inspect the first HTTP request packet in the dissector pane. Note the request line and every request header (Host, User-Agent, Accept, and any others present) in your lab-notes.
 6. Inspect the corresponding HTTP response packet. Note the status line and every response header (Content-Type, Content-Length, Date, Server, and any others present). Note the byte offset where the message body begins relative to the headers.
 7. Run `curl -v http://example.com http://example.com 2>&1 | tee assets/example-persistent.txt` while a fresh capture is active. Save the capture as `assets/02-persistent.pcapng`.
-8. Compare the persistent-connection capture from step 7 with the output of `curl -v --http1.0 http://example.com http://example.com 2>&1 | tee assets/example-http10.txt`. Capture the second invocation as `assets/03-http10.pcapng`. Note the three-way handshake count, FIN packet count, and HTTP request/response pair count in each capture.
+8. Compare the persistent-connection capture from step 7 with the output of `curl -v --http1.0 http://example.com http://example.com 2>&1 | tee assets/example-http10.txt`. Capture the second invocation as `assets/03-http10.pcapng`. Note the count of connection-setup packet groups, the count of connection-teardown packet groups, and the HTTP request/response pair count in each capture.
 9. Run `curl -v -c assets/cookies.txt https://httpbin.org/cookies/set?session=abc123 2>&1 | tee assets/cookies-set.txt`. Inspect the response headers in the curl verbose output. Note any header that affects subsequent requests.
 10. Run `curl -v -b assets/cookies.txt https://httpbin.org/cookies 2>&1 | tee assets/cookies-send.txt`. Inspect the request headers. Note which header was sent by the client this time.
 11. Run `curl -v -I https://example.com 2>&1 | tee assets/cache-headers.txt`. Note the values of `ETag` and `Last-Modified` (if present) in the response.
@@ -99,7 +99,7 @@ The lab is done when:
 - Did you stop each capture before exporting, or did you let it grow unboundedly across the four `curl` runs in steps 3, 7, 8?
 - Did you pick a single packet from the conversation before expanding the dissector pane, instead of trying to interpret the whole stream at once?
 - Did you use `--http1.0` (two dashes, no space) and not `-http1.0`? curl silently ignores unknown short flags.
-- The `neverssl.com` domain in step 3 deliberately serves plain HTTP (no TLS) so that the application-layer bytes are visible in the dissector pane; the `httpbin.org` and `example.com` end systems in steps 9-12 use TLS and the dissector pane will show encrypted application-layer bytes for those captures.
+- The `neverssl.com` domain in step 3 deliberately serves plain HTTP (no TLS); the `httpbin.org` and `example.com` end systems in steps 9-12 use TLS. Compare the application-layer bytes visible in the dissector pane across the four captures.
 
 ## References
 
