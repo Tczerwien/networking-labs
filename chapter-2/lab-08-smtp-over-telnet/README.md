@@ -41,39 +41,39 @@ If any fail, fix per Phase 00 install notes before continuing.
 
 **Display filter (Wireshark syntax):** `smtp or tcp.port == 25 or tcp.port == 587 or tcp.port == 2525`
 
-This lab supports two setup paths. Pick ONE before starting and stay on that path for the entire procedure.
+This lab supports two setup paths. Pick ONE before starting and stay on that path for the entire procedure. Setup steps are unnumbered (path-internal) so the capture procedure below has a single monotonic numbering.
 
 **Setup path A — Local Postfix install (no external account required):**
 
-1. Run `sudo apt install -y postfix`. When prompted by debconf, pick "Local only" (or "Internet Site" if that is the only option presented).
-2. Run `sudo systemctl status postfix` and verify the service is active.
-3. Run `ss -tlnp | grep :25` and verify port 25 is bound on localhost.
+- Run `sudo apt install -y postfix`. When prompted by debconf, pick "Local only" (or "Internet Site" if that is the only option presented).
+- Run `sudo systemctl status postfix` and verify the service is active.
+- Run `ss -tlnp | grep :25` and verify port 25 is bound on localhost.
 
 **Setup path B — Public sandbox (Mailtrap free tier — verify free at <https://mailtrap.io/pricing> before signup):**
 
-1. Open <https://mailtrap.io>. Sign up and create a sandbox inbox.
-2. Open the inbox SMTP credentials page. Note the host, port, username, and password.
-3. Verify reachability with `nc -vz <mailtrap-host> <mailtrap-port>`.
+- Open <https://mailtrap.io>. Sign up and create a sandbox inbox.
+- Open the inbox SMTP credentials page. Note the host, port, username, and password.
+- Verify reachability with `nc -vz <mailtrap-host> <mailtrap-port>`.
 
 > **Note:** Mailtrap free-tier availability is verified at this README's last-updated date. If signup now requires a credit card or the free tier no longer exists, fall back to Setup path A. Setup path B is preserved here for the case where Mailtrap is accessible.
 
 After your setup path is up, proceed with the capture procedure below.
 
-4. Run `ip route get 127.0.0.1` (path A) or `ip route get <mailtrap-host>` (path B) and note the egress interface. The Wireshark capture in step 5 attaches to this interface (`lo` for path A; the routed interface for path B).
-5. Open Wireshark on the interface from step 4. Apply the capture filter above and start a capture.
-6. Run `telnet localhost 25` (path A) or `telnet <mailtrap-host> <mailtrap-port>` (path B) in a terminal. Inspect the first server reply.
-7. Run `HELO mydomain.local` in the telnet connection. Inspect the server reply (status code + message).
-8. Run `MAIL FROM:<test@mydomain.local>` in the telnet connection. Inspect the server reply.
-9. Run `RCPT TO:<test@mydomain.local>` (path A) or `RCPT TO:<your-mailtrap-test-address>` (path B). Inspect the server reply.
-10. Run `DATA` in the telnet connection. Inspect the server reply.
-11. Run the message lines: `Subject: Test message from telnet`, then a blank line, then `This is a test message I sent by hand via telnet.`, then a line containing only `.` (a single period) followed by Enter. Inspect the server reply.
-12. Run `QUIT` in the telnet connection. Inspect the server reply and verify the connection closes.
-13. Capture the traffic until the connection has closed, then end the capture. Save it as `assets/01-smtp-exchange.pcapng`.
-14. Save the full telnet transcript as `assets/02-telnet-transcript.txt` (copy from the terminal scrollback, or re-run under `script -c 'telnet ...' assets/02-telnet-transcript.txt`).
-15. Apply the display filter `smtp` in Wireshark. Inspect the first SMTP packet in the dissector pane. Note the request command and the corresponding server reply (status code + message).
-16. Inspect each subsequent SMTP packet in turn. Note each server reply (status code + message).
-17. Inspect the DATA-phase packets. Note the boundary between the header lines and the body, and the terminator that ends the message.
-18. Note the cleartext nature of the SMTP exchange visible in the capture.
+1. Run `ip route get 127.0.0.1` (path A) or `ip route get <mailtrap-host>` (path B) and note the egress interface. The Wireshark capture in step 2 attaches to this interface (`lo` for path A; the routed interface for path B).
+2. Open Wireshark on the interface from step 1. Apply the capture filter above and start a capture.
+3. Run `telnet localhost 25` (path A) or `telnet <mailtrap-host> <mailtrap-port>` (path B) in a terminal. Inspect the first server reply.
+4. Run `HELO mydomain.local` in the telnet connection. Inspect the server reply (status code + message).
+5. Run `MAIL FROM:<test@mydomain.local>` in the telnet connection. Inspect the server reply.
+6. Run `RCPT TO:<test@mydomain.local>` (path A) or `RCPT TO:<your-mailtrap-test-address>` (path B). Inspect the server reply.
+7. Run `DATA` in the telnet connection. Inspect the server reply.
+8. Run the message lines: `Subject: Test message from telnet`, then a blank line, then `This is a test message I sent by hand via telnet.`, then a line containing only `.` (a single period) followed by Enter. Inspect the server reply.
+9. Run `QUIT` in the telnet connection. Inspect the server reply and verify the connection closes.
+10. Capture the traffic until the connection has closed, then end the capture. Save it as `assets/01-smtp-exchange.pcapng`.
+11. Save the full telnet transcript as `assets/02-telnet-transcript.txt` (copy from the terminal scrollback, or re-run under `script -c 'telnet ...' assets/02-telnet-transcript.txt`).
+12. Apply the display filter `smtp` in Wireshark. Inspect the first SMTP packet in the dissector pane. Note the request command and the corresponding server reply (status code + message).
+13. Inspect each subsequent SMTP packet in turn. Note each server reply (status code + message).
+14. Inspect the DATA-phase packets. Note the boundary between the header lines and the body, and the terminator that ends the message.
+15. Inspect the dissector pane for the SMTP packets. Note what is visible at the byte level for each SMTP command and reply.
 
 ### Per-layer header field interpretation
 
@@ -113,7 +113,7 @@ The lab is done when:
 - On path B, did you check `https://mailtrap.io/pricing` for free-tier changes before creating an account? If the free tier has been removed or now requires a credit card, switch to path A.
 - Did you type the terminator on its own line in step 11? The DATA-phase terminator is a single `.` on a line by itself; if your terminal expanded a paste or appended whitespace, the server will keep waiting and your `QUIT` will look like message body.
 - Did you end the Wireshark capture before exporting, or did you let it grow unboundedly across the entire telnet connection?
-- Did you read the SMTP status codes left-to-right? Each three-digit code's first digit indicates the broad outcome (1xx info, 2xx success, 3xx intermediate, 4xx transient, 5xx permanent); the remaining digits add detail.
+- Did you read each three-digit SMTP status code as a whole, or assume the digits are independent? Reply codes are defined as a single 3-digit value with a class structure — read RFC 5321 §4.2.1 alongside your captured codes to interpret each one.
 
 ## References
 
