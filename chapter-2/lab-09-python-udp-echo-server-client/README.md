@@ -17,7 +17,7 @@ Build the simplest possible network application from the socket primitives up: a
 - **K&R sections covered:** §2.7 (Socket Programming: Creating Network Applications), §2.7.1 (Socket Programming with UDP)
 - **Decision Gate 1 connection:** Indirect prep — Decision Gate 1 demos a Wireshark capture across the layers; the UDP datagrams produced by this lab give a maximally simple application-layer-over-transport-layer dissection (no handshake, no teardown, no retransmission) that is the cleanest possible reference point for the gate demo.
 
-K&R §2.7.1 introduces the socket address pair `(IP, port)` as the application-process identifier on a host; this lab makes that pair concrete by binding a UDP socket to `127.0.0.1:9999` and exchanging datagrams against it.
+This lab makes the host-process identifier concrete by binding a UDP socket to `127.0.0.1:9999` and exchanging datagrams against it. K&R §2.7.1 names the addressing model the learner exercises in this lab.
 
 ## Prerequisites
 
